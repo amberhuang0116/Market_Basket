@@ -9,7 +9,7 @@ library(ggplot2)
 library(magrittr)
 
 #load data
-items <- read_excel('/Users/vinay/Downloads/archive/Assignment-1_Data.xlsx')
+items <- read_excel('Assignment-1_Data.xlsx')
 
 #removing rows with no items
 complete_items <- data.frame(items[complete.cases(items),])
@@ -23,10 +23,10 @@ transac_data$Date <- NULL
 colnames(transac_data) <- c("items")
 
 #to csv
-write.csv(transac_data, "/Users/vinay/Downloads/archive/itemlist_data.csv", quote = FALSE, row.names = FALSE)
+write.csv(transac_data, "itemlist_data.csv", quote = FALSE, row.names = FALSE)
 
 #Analysing transaction data
-final_transac <- read.transactions("/Users/vinay/Downloads/archive/itemlist_data.csv", format = 'basket', sep =',')
+final_transac <- read.transactions("itemlist_data.csv", format = 'basket', sep =',')
 summary(final_transac)
 
 #Frequency plot
